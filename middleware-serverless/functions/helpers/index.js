@@ -1,6 +1,6 @@
 const flexFlowSid = process.env.FLEX_FLOW_SID;
 const flexChatService = process.env.FLEX_CHAT_SERVICE;
-const syncServiceSid = process.env.SYNC_SID;
+const syncServiceSid = process.env.SYNC_SERVICE_SID;
 const syncMapSid = process.env.SYNC_MAP_SID; 
 
 async function saveChannelSid(fromNumber, flexChannelCreatedSid, client) {
