@@ -50,6 +50,11 @@ Inquirer.prompt([
     name: 'telerivetAPIkey',
     message: 'Telerivet API key'
   },
+  {
+    type: 'string',
+    name: 'telerivetProjectId',
+    message: 'Telerivet Project ID'
+  },
 
 ]).then(answers => {
 
@@ -81,7 +86,8 @@ Inquirer.prompt([
         + `SYNC_SERVICE_SID=${answers.syncServiceSid}\n`
         + `SYNC_MAP_SID=${answers.syncMapSid}\n`
         + `TELERIVET_PASS=${answers.telerivetPass}\n`
-        + `TELERIVET_API_KEY=${answers.telerivetAPIkey}`
+        + `TELERIVET_API_KEY=${answers.telerivetAPIkey}\n`
+        + `TELERIVET_PROJECT_ID=${answers.telerivetProjectId}`
 
       fs.writeFileSync('middleware-serverless/.env',envFileContent)
     })
