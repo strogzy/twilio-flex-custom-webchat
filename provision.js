@@ -73,9 +73,9 @@ Inquirer.prompt([
     .create(flowOptions)
     .then(flexFlow => {
       console.log(`Created Flex Flow ${flexFlow.sid}`);
-      envFileContent = `TWILIO_ACCOUNT_SID=${answers.twilioAccountSid}\n` 
+      envFileContent = `ACCOUNT_SID=${answers.twilioAccountSid}\n` 
+        + `AUTH_TOKEN=${answers.twilioAuthToken}\n`
         + `WEBHOOK_BASE_URL=${answers.functionsURL}\n`  
-        + `TWILIO_AUTH_TOKEN=${answers.twilioAuthToken}\n`
         + `FLEX_FLOW_SID=${flexFlow.sid}\n`
         + `FLEX_CHAT_SERVICE=${answers.flexChatServiceSid}\n`
         + `SYNC_SERVICE_SID=${answers.syncServiceSid}\n`
