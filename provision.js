@@ -7,6 +7,11 @@ const fs = require('fs');
 Inquirer.prompt([
   {
     type: 'string',
+    name: 'functionsURL',
+    message: 'Base URL'
+  },
+  {
+    type: 'string',
     name: 'twilioAccountSid',
     message: 'Twilio Account SID'
   },
@@ -38,7 +43,7 @@ Inquirer.prompt([
   {
     type: 'string',
     name: 'telerivetPass',
-    message: 'Telerivet Passphrase'
+    message: 'Telerivet Passphrase (webhook secret)'
   },
   {
     type: 'string',
@@ -69,12 +74,13 @@ Inquirer.prompt([
     .then(flexFlow => {
       console.log(`Created Flex Flow ${flexFlow.sid}`);
       envFileContent = `TWILIO_ACCOUNT_SID=${answers.twilioAccountSid}\n` 
+        + `WEBHOOK_BASE_URL=${answers.functionsURL}\n`  
         + `TWILIO_AUTH_TOKEN=${answers.twilioAuthToken}\n`
         + `FLEX_FLOW_SID=${flexFlow.sid}\n`
-        + `FLEX_CHAT_SERVICE=${answers.flexChatServiceSid}`
-        + `SYNC_SERVICE_SID=${answers.syncServiceSid}`
-        + `SYNC_MAP_SID=${answers.syncMapSid}`
-        + `TELERIVET_PASS=${answers.telerivetPass}`
+        + `FLEX_CHAT_SERVICE=${answers.flexChatServiceSid}\n`
+        + `SYNC_SERVICE_SID=${answers.syncServiceSid}\n`
+        + `SYNC_MAP_SID=${answers.syncMapSid}\n`
+        + `TELERIVET_PASS=${answers.telerivetPass}\n`
         + `TELERIVET_API_KEY=${answers.telerivetAPIkey}`
 
       fs.writeFileSync('middleware-serverless/.env',envFileContent)
