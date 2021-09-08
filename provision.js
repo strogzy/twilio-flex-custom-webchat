@@ -58,7 +58,7 @@ Inquirer.prompt([
     channelType: 'custom',
     enabled: true,
     'integration.flowSid': answers.studioFlowSid,
-    contactIdentity: 'contact-identity',
+    contactIdentity: 'telerivet-channel',
     friendlyName: 'Flex Custom Channel Flow',
     chatServiceSid: answers.flexChatServiceSid
   };
