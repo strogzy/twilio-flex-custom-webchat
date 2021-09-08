@@ -1,7 +1,7 @@
 const flex = require('./on-custom-message'); 
-const {saveChannelSid, getChannelSid, removeChannelKey} = require('./helpers/index');
 
 exports.handler = async function(context, event, callback) {
+  const {saveChannelSid, getChannelSid, removeChannelKey} = require(Runtime.getFunctions()['helpers/index'].path);
   let client = context.getTwilioClient();
   console.log('Twilio channel update webhook fired', event);
   let attribs = JSON.parse(event.Attributes);

@@ -3,7 +3,6 @@
 var base64 = require("base-64");
 const fetch = require("node-fetch");
 const { URLSearchParams } = require("url");
-const {saveChannelSid, getChannelSid} = require('./helpers/index');
 
 const flexFlowSid = process.env.FLEX_FLOW_SID;
 const flexChatService = process.env.FLEX_CHAT_SERVICE;
@@ -11,6 +10,7 @@ const syncServiceSid = process.env.SYNC_SERVICE_SID;
 const syncMapSid = process.env.SYNC_MAP_SID;
 
 exports.handler = async function (context, event, callback) {
+  const {saveChannelSid, getChannelSid} = require(Runtime.getFunctions()['helpers/index'].path);
   let client = context.getTwilioClient();
 
   const fromNumber = event.from_number;
